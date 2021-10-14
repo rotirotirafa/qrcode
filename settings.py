@@ -1,4 +1,5 @@
 import os, logging
+from exceptions import DirectoryExists
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 FILE_PATH = 'files'
@@ -11,7 +12,9 @@ def create_files_directory():
         print(f'{files_path} Created!!!')
         return True
     except Exception as ex:
-        print(f'Not able to create /files directory -> {ex}')
+        msg = f'Not able to create /files directory -> {ex}'
+        logging.error(msg)
+        print(msg)
         return False
 
 def remove_files_directory():
@@ -22,7 +25,9 @@ def remove_files_directory():
             return True
         return None
     except Exception as ex:
-        pass
+        msg = f'Not able to REMOVE /files directory -> {ex}'
+        logging.error(msg)
+        print(msg)
 
 try:
     if os.path.exists('files') is False:
@@ -30,6 +35,7 @@ try:
         create_files_directory()
     else:
         print('/files direcotory is already there.')
+        pass
     
 except Exception as ex:
     print(f'Not able to create /files directory -> {ex}')
