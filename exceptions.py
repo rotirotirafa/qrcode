@@ -1,16 +1,15 @@
-class BaseException(Exception):
-    
-    
-    def __init__(self, message, code = None, *args: object) -> None:
-        super().__init__(*args)
-        self.message = message
-        self.code = code
+class DefaultException(Exception):
+    """
+        Exception que serve de base para qualquer outra excessão.
 
-    def __repr__(self) -> str:
-        return super().__repr__()
+        Attributes:
+            message -- Display the information 
+    """
+
+    def __init__(self, message, *args: object) -> None:
+        self.message = message
+        super().__init__(message, *args)
 
     def __str__(self) -> str:
-        return super().__str__()
+        return f'Error {self.message}'
 
-class DirectoryExists(BaseException):
-    pass

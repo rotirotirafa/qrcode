@@ -1,4 +1,5 @@
 import os
+from exceptions import DefaultException
 
 from settings import BASE_PATH, FILE_PATH
 
