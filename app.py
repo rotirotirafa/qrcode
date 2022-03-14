@@ -34,3 +34,6 @@ def save_qr_code(qr, data):
     except Exception as ex:
         print(ex)
         return False
+
+
+create_code({'link': 'http://www.google.com.br', 'nome': 'teste'})

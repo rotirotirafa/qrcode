@@ -15,6 +15,7 @@ def create_files_directory():
         print(msg)
         return False
 
+
 def remove_files_directory():
     try:
         files_path = os.path.join(BASE_PATH, FILE_PATH)
@@ -25,6 +26,7 @@ def remove_files_directory():
     except Exception as ex:
         msg = f'Not able to REMOVE /files directory -> {ex}'
         print(msg)
+
 
 try:
     if os.path.exists('files') is False:
